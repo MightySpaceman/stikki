@@ -8,7 +8,7 @@ localised self-hosted bulletin-board-alike system for managing notes as an indiv
 - The webapp GUI will feature a visual interface of a literal bulletin board. Multiple boards will be able to store different sets of 'stickies', corresponding to different categories.
 
 ## Todo (Short-term)
-- [ ] Work out mySQL integration with node
-- [ ] Begin backend construction
+- [x] Work out mySQL integration with node
+- [x] Begin backend construction
 
 Just a note that at this point the entire project is literally just an idea, but I am working to make it a reality, even though I am a complete noob to JS. It'll be a big undertaking so if anyone wants to help later on, that would be greatly appreciated.
