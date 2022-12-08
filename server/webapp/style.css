@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+}
+
+.submit-area {
+    padding: 10px;
+    margin: 30px;
+    width: 500px;
+    position: fixed;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.submit-area input {
+    margin: 5px;
+}
+
+.notes-table {
+    padding: 10px;
+    margin: 30px;
+    float: right;
+    width: 1200px;
+    border: 2px solid black;
+}
+
+.note {
+    border: 2px solid black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    width: 550px;
+}
+
+.note p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+#date {
+    color: gray;
+    font-size: 12px;
+}
