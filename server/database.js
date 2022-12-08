@@ -6,4 +6,4 @@ const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE, (err) =
     console.log("Database connected.");
 });
 
-module.exports = { db }; ad
+module.exports = { db };
