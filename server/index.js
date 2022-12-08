@@ -21,17 +21,24 @@ app.get('/list', (req, res) => {
 }); 
 
 app.post('/new', (req, res) => {
-    db.run(`INSERT INTO notes(title, creation_date, content) VALUES ("${req.body.title}", "${Date()}", "${req.body.content}")`);
-    res.redirect('back');
+    try {
+      db.run(`INSERT INTO notes(title, creation_date, content) VALUES ("${req.body.title}", "${Date()}", "${req.body.content}")`);
+      res.redirect('back');
+    }
+    catch (err) {
+      console.log(err);
+      res.redirect("500.html");
+    }
 });
 
 app.get('/', (req, res) => {
     // redirect to the html index if the URL is accessed without a path. Access from the CLI and possibly the mobile app will have a specific URL they go to to get 
     // tailored data.
     res.redirect('webapp/index.html');
+    console.log(`Request from ${req.ip}`);
 });
 
  // Listen idk
 app.listen(port, () => {
-  console.log(`listening at http://localhost:${port}`);
+  console.log(`Serving at http://localhost:${port}`);
 });

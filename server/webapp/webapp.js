@@ -20,3 +20,5 @@ fetch('/list')
       document.getElementById('notes-table').appendChild(div);
     }
 });
+
+

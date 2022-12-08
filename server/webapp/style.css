@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    background-color: red;
 }
 
 .submit-area {
@@ -9,6 +10,7 @@ body {
     position: fixed;
     text-align: center;
     border: 2px solid black;
+    background-color: white;
 }
 
 .submit-area input {
@@ -21,6 +23,7 @@ body {
     float: right;
     width: 1200px;
     border: 2px solid black;
+    background-color: white;
 }
 
 .note {
