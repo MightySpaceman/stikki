@@ -5,7 +5,7 @@ Uses node.js express with mySQL as a database, running either locally or across 
 currently it is only a dynamic webpage, however I intend to add much more functionality - including user authentication, multiple 'boards' to store different notes,
 a CLI and possibly even a mobile webapp.
 
-For installation instructions, see the [https://github.com/MightySpaceman/stikki/wiki/Installation-guide](wiki)
+For installation instructions, see the [wiki](https://github.com/MightySpaceman/stikki/wiki/Installation-guide)
 
 ## Todo
 - [ ] Get user authentication working
