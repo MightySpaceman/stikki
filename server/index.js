@@ -38,7 +38,7 @@
   app.post('/', (req, res) => {
     let pwd = db.all("SELECT password FROM whitelist WHERE username = $name", 
     {
-      $name: ${req.body.username}
+      $name: req.body.username
     },
     (err, rows) => {
       if (err) {
