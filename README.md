@@ -9,7 +9,8 @@ operation.
 For installation instructions, see the [wiki](https://github.com/MightySpaceman/stikki/wiki/Installation-guide)
 
 ## Todo
-- [ ] Get user authentication working
+- [ ] Sanitize SQL
+- [ ] Add cookie to recognise device/keep them logged in even after the page reloads when adding note
 - [ ] Improve main page visual flair
 - [ ] Allow note editing
 - [ ] Begin CLI
