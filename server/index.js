@@ -2,13 +2,23 @@ const { db } = require("./database");
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-app.use(express.static('webapp'));
-
-const port = 8000;
+const config = require('./serverConfig.json');
 
 // middleware thing idk I found this on stackoverflow (and yeah I admit it)
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.get('/', (req, res) => {
+  // redirect to the html index if the URL is accessed without a path. Access from the CLI and possibly the mobile app will have a specific URL they go to to get 
+  // tailored data.
+
+  if (config.usePassword == true) {
+    res.sendFile("webapp/login.html", { root: __dirname });
+  }
+  else {
+    res.sendFile("webapp/index.html", { root: __dirname });
+  }
+});
 
 app.get('/list', (req, res) => {
     db.all(`SELECT * FROM notes`, (err, rows) => {
@@ -20,15 +30,8 @@ app.get('/list', (req, res) => {
 });
 }); 
 
-
-app.get('/', (req, res) => {
-  // redirect to the html index if the URL is accessed without a path. Access from the CLI and possibly the mobile app will have a specific URL they go to to get 
-  // tailored data.
-  res.redirect('webapp/index.html');
-});
-
 app.get('/login', (req, res) => {
-  res.redirect('webapp/login.html');
+  res.sendFile('webapp/login.html');
 });
 
 app.post('/new', (req, res) => {
@@ -42,7 +45,17 @@ app.post('/new', (req, res) => {
     }
 });
 
+app.post('/login', (req, res) => {
+  if (req.body.password == config.password) {
+    console.log(`Succesful login from ${req.ip}`);
+    res.sendFile('webapp/index.html', { root: __dirname });
+  }
+  else {
+    res.send("<h1>Access.denied</h1>");
+  }
+});
+
  // Listen idk
-app.listen(port, () => {
-  console.log(`Serving at http://localhost:${port}`);
+app.listen(config.port, () => {
+  console.log(`Serving at http://localhost:${config.port}`);
 });
