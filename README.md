@@ -11,6 +11,6 @@ For installation instructions, see the [wiki](https://github.com/MightySpaceman/
 ## Todo
 - [ ] Sanitize SQL
 - [ ] Add cookie to recognise device/keep them logged in even after the page reloads when adding note
-- [ ] Improve main page visual flair
+- [x] Improve main page visual flair (done-kinda still needs more improvement)
 - [ ] Allow note editing
-- [ ] Begin CLI
+- [x] Begin CLI

@@ -1,5 +1,6 @@
   const { db } = require("./database");
   const express = require('express');
+  const fs = require('fs');
   const bodyParser = require('body-parser');
   const app = express();
   app.use('/style.css', express.static('webapp/style.css'));
@@ -9,6 +10,10 @@
   // middleware thing idk I found this on stackoverflow (and yeah I admit it)
   app.use(bodyParser.json()); // for parsing application/json
   app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+  function logFile(data) {
+    fs.appendFileSync(`${Date()}: ${data}\n`);
+  }
 
   app.get('/', (req, res) => {
     // redirect to the html index if the URL is accessed without a path. Access from the CLI and possibly the mobile app will have a specific URL they go to to get 
@@ -40,23 +45,28 @@
       if (err) {
         throw err;
       }
-
+  
       try {
-        if (req.body.password == rows[0].password) {
-          console.log(`Succesful login from ${req.ip}`);
+        if (rows.length > 0 && req.body.password == rows[0].password) {
           res.sendFile('./webapp/index.html', { root: __dirname });
+          console.log(`Succesful login from ${req.ip}`);
+          logFile(`Succesful login from ${req.ip} by user ${req.body.username}\n`);
         }
         else {
-          console.log(`Unsuccesful login from ${req.ip}`);
           res.send("<h1>Access.denied</h1>");
+          console.log(`Unsuccesful login from ${req.ip} - username supplied: ${req.body.username} password: ${req.body.password}`);
+          logFile(`Unsuccesful login from ${req.ip} - username supplied: ${req.body.username} password: ${req.body.password}`);
         }
       }
       catch (err) {
-        res.send("<h1>Error 500</h1><h2>Internal server error</h2>")
+        res.send("<h1>Error 500</h1><h2>Internal server error</h2>");
+        console.log(err);
+        logFile(`Error encountered: \n${err}`);
       }
-
+  
     });
   });
+  
 
   app.post('/new', (req, res) => {
       try {

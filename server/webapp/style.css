@@ -1,6 +1,7 @@
 body {
     text-align: center;
     background-color: red;
+    font-family: 'Courier New';
 }
 
 .submit-area {
@@ -50,7 +51,18 @@ body {
 
 /* Login page */
 .login-wrapper {
-    border: 2px solid black;
     padding: 30px;
     margin: 30px;
+
+    position: absolute;
+    top: 35%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+
+    height: 200px;
+}
+
+.login-wrapper form {
+    margin: 10px;
 }
