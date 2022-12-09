@@ -36,7 +36,11 @@
 
 
   app.post('/', (req, res) => {
-    let pwd = db.all(`SELECT password FROM whitelist WHERE username = '${req.body.username}'`, (err, rows) => {
+    let pwd = db.all("SELECT password FROM whitelist WHERE username = $name", 
+    {
+      $name: ${req.body.username}
+    },
+    (err, rows) => {
       if (err) {
         throw err;
       }
