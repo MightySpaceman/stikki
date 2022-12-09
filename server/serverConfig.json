@@ -1,5 +1,4 @@
 {
-    "port":8000,
-    "usePassword":true,
-    "password":"helloworld"
+    "port":80,
+    "usePassword":true
 }
