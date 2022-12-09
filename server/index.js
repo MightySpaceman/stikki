@@ -12,7 +12,7 @@
   app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
   function logFile(data) {
-    fs.appendFileSync(`${Date()}: ${data}\n`);
+    fs.appendFileSync("./events.log", `${Date()}: ${data}\n`);
   }
 
   app.get('/', (req, res) => {
@@ -50,7 +50,7 @@
         if (rows.length > 0 && req.body.password == rows[0].password) {
           res.sendFile('./webapp/index.html', { root: __dirname });
           console.log(`Succesful login from ${req.ip}`);
-          logFile(`Succesful login from ${req.ip} by user ${req.body.username}\n`);
+          logFile(`Succesful login from ${req.ip} by user ${req.body.username}`);
         }
         else {
           res.send("<h1>Access.denied</h1>");
