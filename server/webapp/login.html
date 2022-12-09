@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <!--
+        <script>
+            const { getCookie } = require("./cookies");
+
+            if (getCookie("pwd") == pwd) {
+                window.location.href = './index.html'
+            }
+
+            const button = document.getElementById("button");
+
+            button.onclick = () => {
+                document.cookie = "pwd=helloworld";
+            }
+        </script>
+        -->
+
+        <link rel="stylesheet" href="./style.css">
+    </head>
     <body>
+        <div class="login-wrapper">
         <h1>LOGIN TO STIKKI</h1>
-        <form action="/login" method="post">
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Submit">
-          </form>         
+        <p>If you do not have an account on this server, ask it's owner for a place in the whitelist.</p>
+        <form action="/" method="POST">
+            <input type="text" id="username" name="username" placeholder="USERNAME">
+            <input type="password" id="password" name="password" placeholder="PASSWORD">
+            <input type="submit" value="Login" id="button">
+          </form>  
+        </div>     
     </body>
 </html>

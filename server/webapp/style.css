@@ -47,3 +47,10 @@ body {
     color: gray;
     font-size: 12px;
 }
+
+/* Login page */
+.login-wrapper {
+    border: 2px solid black;
+    padding: 30px;
+    margin: 30px;
+}
