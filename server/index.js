@@ -34,6 +34,8 @@
         if (err) {
           res.sendStatus(500);
         } else {
+          // rows are send in reverse order so that upon loading on the frontend page they are ordered most recent first to least recent last
+          rows.reverse();
           res.json(rows);
       }
   });
@@ -41,7 +43,7 @@
 
 
   app.post('/', (req, res) => {
-    let pwd = db.all(`SELECT password FROM whitelist WHERE username = '${req.body.username}'`, (err, rows) => {
+    db.all(`SELECT password FROM whitelist WHERE username = ?`, [req.body.username], (err, rows) => {
       if (err) {
         throw err;
       }
@@ -66,7 +68,6 @@
   
     });
   });
-  
 
   app.post('/new', (req, res) => {
       try {

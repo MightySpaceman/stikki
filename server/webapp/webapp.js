@@ -10,12 +10,14 @@ fetch('/list')
       div.innerHTML = `<h2>${obj.title}</h2><p>${obj.content}</p><p id="date">${obj.creation_date}</p>`;
       div.classList.add('note');
 
+      /*
       div.onmouseover = () => {
         div.style.cursor = 'grab';
       }
       div.onclick = () => {
         window.location = `/note/:${obj.title}`;
       }
+      */
       
       document.getElementById('notes-table').appendChild(div);
     }
