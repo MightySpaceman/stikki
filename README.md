@@ -10,7 +10,7 @@ For installation instructions, see the [wiki](https://github.com/MightySpaceman/
 
 ## Todo
 - [x] Prevent kicking user back to login page after posting note, possibly by setting up sessions once a user is logged in or cookies in browser.
-- [ ] Sanitize SQL
+- [x] Sanitize SQL
 - [x] Improve main page visual flair (done-kinda still needs more improvement)
 - [ ] Allow note editing
 - [x] Begin CLI
