@@ -7,11 +7,6 @@
   app.use('/webapp.js', express.static('webapp/webapp.js'));
   const config = require('./serverConfig.json');
 
-  // Get time in DD/MM/YYYY Hour:Minute:Second format
-const date = new Date();
-const timeNow = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-
-
   // middleware thing idk I found this on stackoverflow (and yeah I admit it)
   app.use(bodyParser.json()); // for parsing application/json
   app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -75,8 +70,11 @@ const timeNow = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFul
   });
 
   app.post('/new', (req, res) => {
+    req.body.title == "" ? req.body.title = "[No Title]" : req.body.title = req.body.title;
+    req.body.content == "" ? req.body.content = "[No Content]" : req.body.content = req.body.content;
+
       try {
-        db.run(`INSERT INTO notes(title, creation_date, content) VALUES (?, ?, ?)` , [req.body.title, timeNow, req.body.content]);
+        db.run(`INSERT INTO notes(title, creation_date, content) VALUES (?, ?, ?)` , [req.body.title, Date(), req.body.content]);
         res.sendFile('./webapp/index.html', { root: __dirname });
       }
       catch (err) {
