@@ -1,45 +1,71 @@
 body {
     text-align: center;
-    background-color: seagreen;
+    background-color: aquamarine;
     font-family: 'Courier New';
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 2.604vw;
+}
+
+h2 {
+    font-size: 1.5vw;
+}
+
+p {
+    font-size: 1vw;
 }
 
 .submit-area {
-    padding: 10px;
-    margin: 30px;
-    width: 300px;
+    padding: 0.521vw;
+    margin: 2vw ;
+    width: 15.625vw;
     position: fixed;
     text-align: center;
-    border: 2px solid black;
+    border: 0.154vw solid black;
     background-color: white;
 }
 
 .submit-area input {
-    margin: 5px;
+    margin: 0.26vw;
+}
+
+#textbox {
+    resize: none;
+    width: 15vw;;
+    height: 5vw;
+    font-size: 0.8vw;
+}
+
+#title {
+    width: 9vw;
+    font-size: 0.8vw;
+    float: left;
+}
+
+#submit {
+    font-size: 0.8vw;
+    float: right;
 }
 
 .notes-table {
-    padding: 10px;
-    margin: 30px;
+    padding: 0.521vw;
+    margin: 1.563vw;
     float: right;
-    width: 1400px;
-    border: 2px solid black;
+    width: 72.917vw;
+    border: 0.154vw solid black;
     background-color: white;
 }
 
 .note {
-    border: 2px solid black;
+    border: 0.154vw solid black;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     float: left;
-    padding: 10px;
-    margin: 10px;
-    width: 420px;
+    padding: 0.521vw;
+    margin: 0.521vw;
+    width: 21.875vw;
 }
 
 .note p {
@@ -50,13 +76,18 @@ h1 {
 
 #date {
     color: gray;
-    font-size: 12px;
+    font-size: 0.625vw;
+}
+
+#logo-img {
+    width: 21.875vw;
+    margin: 1.042vw;
 }
 
 /* Login page */
 .login-wrapper {
-    padding: 30px;
-    margin: 30px;
+    padding: 1.563vw;
+    margin: 1.563vw;
 
     position: absolute;
     top: 35%;
@@ -64,9 +95,9 @@ h1 {
     left: 0;
     right: 0;
 
-    height: 200px;
+    height: 10.417vw;
 }
 
 .login-wrapper form {
-    margin: 10px;
+    margin: 0.521vw;
 }

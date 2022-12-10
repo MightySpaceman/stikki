@@ -3,9 +3,15 @@
   const fs = require('fs');
   const bodyParser = require('body-parser');
   const app = express();
+
+  // config
+  const config = require('./serverConfig.json');
+
+  // files whitelist?
   app.use('/style.css', express.static('webapp/style.css'));
   app.use('/webapp.js', express.static('webapp/webapp.js'));
-  const config = require('./serverConfig.json');
+  app.use('/logo.png', express.static('webapp/logo.png'));
+  app.use('/favicon.png', express.static('webapp/favicon.png'));
 
   // middleware thing idk I found this on stackoverflow (and yeah I admit it)
   app.use(bodyParser.json()); // for parsing application/json
