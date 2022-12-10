@@ -72,7 +72,7 @@
   app.post('/new', (req, res) => {
       try {
         db.run(`INSERT INTO notes(title, creation_date, content) VALUES ("${req.body.title}", "${Date()}", "${req.body.content}")`);
-        res.redirect('back');
+        res.sendFile('./webapp/index.html', { root: __dirname });
       }
       catch (err) {
         console.log(err);
