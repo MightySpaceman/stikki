@@ -1,8 +1,8 @@
   const { db } = require("./database");
   const express = require('express');
   const fs = require('fs');
-  const bodyParser = require('body-parser');
   const app = express();
+  const bodyParser = require('body-parser');
 
   // config
   const config = require('./serverConfig.json');
@@ -75,7 +75,7 @@
     });
   });
 
-  app.post('/new', (req, res) => {
+  app.post('/dashboard', (req, res) => {
     req.body.title == "" ? req.body.title = "[No Title]" : req.body.title = req.body.title;
     req.body.content == "" ? req.body.content = "[No Content]" : req.body.content = req.body.content;
 
